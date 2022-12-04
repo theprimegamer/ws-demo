@@ -65,12 +65,12 @@ resource "aws_sqs_queue_policy" "ws_demo_sns_sqs" {
 POLICY
 }
 
-# provider "docker" {
-#   host = "unix:///var/run/docker.sock"
-# }
 provider "docker" {
-  host = "npipe:////.//pipe//docker_engine"
+  host = "unix:///var/run/docker.sock"
 }
+# provider "docker" {
+#   host = "npipe:////.//pipe//docker_engine"
+# }
 
 # get the mongo docker image
 resource "docker_image" "mongo" {
@@ -84,7 +84,8 @@ resource "docker_container" "mongo" {
   image = docker_image.mongo.latest
   ports {
     internal = 27017
-    external = 27017
+    external = var.mongo_port
   }
+  restart = "always"
+  env     = ["MONGO_INITDB_ROOT_USERNAME=${var.mongo_admin_username}", "MONGO_INITDB_ROOT_PASSWORD=${var.mongo_admin_password}"]
 }
-
