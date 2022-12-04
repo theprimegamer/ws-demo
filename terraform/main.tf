@@ -65,12 +65,14 @@ resource "aws_sqs_queue_policy" "ws_demo_sns_sqs" {
 POLICY
 }
 
-provider "docker" {
-  host = "unix:///var/run/docker.sock"
-}
+# For Unix environments
 # provider "docker" {
-#   host = "npipe:////.//pipe//docker_engine"
+#   host = "unix:///var/run/docker.sock"
 # }
+# For Windows environments
+provider "docker" {
+  host = "npipe:////.//pipe//docker_engine"
+}
 
 # get the mongo docker image
 resource "docker_image" "mongo" {

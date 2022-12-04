@@ -2,8 +2,9 @@
 
 ## Configuration
 
-Create /deploy/terraform/credentials file with your AWS creds
-Create /src/server/.env file with
+Create /terraform/credentials file with your AWS creds as the [default] profile
+
+Create /.env file with properties specified below
 
 | Variable name         | Purpose                                 |
 | --------------------- | --------------------------------------- |
@@ -19,7 +20,6 @@ Create /src/server/.env file with
 ## Scaffolding
 
 - At /deploy/terraform `terraform apply`
-- On the mongo server, create a new database named `ws-demo` with a collection named `messages`
 
 ## Running the project
 

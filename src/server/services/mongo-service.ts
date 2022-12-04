@@ -7,7 +7,11 @@ export const addMessage = async (messageId: string) => {
 
   try {
     await client.connect();
-    await client.db("ws-demo").collection("messages").insertOne({ messageId });
+    const insertResult = await client
+      .db("ws-demo")
+      .collection("messages")
+      .insertOne({ messageId });
+    console.log("mongo result", insertResult);
   } finally {
     await client.close();
   }
