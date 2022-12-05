@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-input {
+    @apply border rounded border-gray-300;
+}
+
+.btn-blue {
+    @apply bg-blue-300 rounded
+}
+
+.btn-blue:hover {
+    @apply bg-blue-500 text-white
+}
+
+.btn-blue:active {
+    @apply bg-blue-800 text-white
+}

@@ -1,9 +1,14 @@
 import AWS from "aws-sdk";
 AWS.config.region = "us-east-1";
 
-export const sendUpdateMessage = async (message: string) => {
+export type Message = {
+  messageType: number;
+  message: string;
+};
+
+export const sendUpdateMessage = async (message: Message) => {
   const params: AWS.SNS.PublishInput = {
-    Message: message,
+    Message: JSON.stringify(message),
     TopicArn: process.env.UPDATE_SNS_ARN,
   };
 

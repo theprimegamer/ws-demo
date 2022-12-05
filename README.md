@@ -19,9 +19,8 @@ Create /.env file with properties specified below
 
 ## Scaffolding
 
-- At /deploy/terraform `terraform apply`
+- At /terraform `terraform apply`
 
 ## Running the project
 
-- At /src/server/ `npm i`
-- At /src/server/ `npm run dev`
+Use the run configurations provided to run the server and client in dev mode

@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { configureExpress } from "./express-config";
+import { configureExpress } from "./express";
 import { configureWebsockets } from "./web-sockets-config";
 
 dotenv.config();
